@@ -1,75 +1,48 @@
-# Nuxt 3 Minimal Starter
+# Тестовый проект для позиции Frontend Разработчика
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Этот проект представляет собой тестовое задание для позиции frontend разработчика в компании Fruktorum. Задача состоит в разработке клиентской части веб-сайта, на котором владелец может публиковать статьи. Содержимое страниц генерируется динамически с использованием данных, полученных от headless CMS через API.
 
-## Setup
+## Основные требования
 
-Make sure to install the dependencies:
+- Использование Nuxt 3, Vite, Composition API, Pinia
+- Использование PUG для vue шаблонов и SCSS + BEM для стилей
+- Адаптивный дизайн
+- Страницы должны максимально соответствовать предоставленному макету (Pixel perfect не требуется)
 
-```bash
-# npm
-npm install
+## Структура проекта
 
-# pnpm
-pnpm install
+### API
 
-# yarn
-yarn install
+API URL: http://devtwit8.ru/api/v1/page?path=<page_path>
 
-# bun
-bun install
-```
+Примеры запросов:
+- http://devtwit8.ru/api/v1/page/?path=/
+- http://devtwit8.ru/api/v1/page/?path=/article-1
 
-## Development Server
+### Макет
 
-Start the development server on `http://localhost:3000`:
+[Ссылка на макет в Figma](https://www.figma.com/file/gaVewxCfnnEZ5aByrndYQv/TestBlog?type=design&mode=design&t=HeRePKmVEZQpd4Lf-1)
 
-```bash
-# npm
-npm run dev
+### Типы блоков
 
-# pnpm
-pnpm run dev
+1. Текстовый блок (`text_block`): содержит заголовки, параграфы, цитаты и списки.
+2. Блок изображения (`image_block`): содержит изображение с возможным описанием.
+3. Слайдер (`slider_block`): простой слайдер с изображениями.
+4. Подписка на рассылку (`subscribe_form_block`): блок подписки.
+5. Форма (`cta_form_block`): форма для обратной связи или других целей.
+6. Список статей (`article_list_block`): блок с перечнем статей.
+7. Вступительный блок статьи (`article_intro_block`): содержит заголовок, время чтения, количество просмотров, краткое описание и изображение.
 
-# yarn
-yarn dev
+## Запуск проекта
 
-# bun
-bun run dev
-```
+Для запуска проекта выполните следующие шаги:
 
-## Production
+1. Клонируйте репозиторий
+2. Установите зависимости, запустив `npm install` или `yarn install`
+3. Запустите проект, выполнив `npm run dev` или `yarn dev`
 
-Build the application for production:
+Контактные данные:
+- Телефон: 8 800 555-22-38
+- Сайт: [fruktorum.com/ru](https://fruktorum.com/ru)
+- Email: hi@fruktorum.com
 
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
