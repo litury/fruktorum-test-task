@@ -1,0 +1,13 @@
+@import "../_mixins/_font-face.scss";
+
+// font-family: 'Montserrat-Regular', sans-serif
+@include font("Montserrat-Regular", normal, 400, "@/fonts/Montserrat/Montserrat-Regular.woff2");
+
+// font-family: 'Montserrat-ExtraBold', sans-serif
+@include font("Montserrat-ExtraBold", normal, 800, "@/fonts/Montserrat/Montserrat-ExtraBold.woff2");
+
+// font-family: 'Montserrat-LightItalic', sans-serif
+@include font("Montserrat-LightItalic", italic, 400, "@/fonts/Montserrat/Montserrat-LightItalic.woff2");
+
+// font-family: 'Ubuntu-Regular', sans-serif
+@include font("Ubuntu-Regular", normal, 400, "@/fonts/Ubuntu/Ubuntu-Regular.woff2");

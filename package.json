@@ -11,8 +11,20 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@nuxtjs/style-resources": "^2.0.0",
+    "node-sass": "^9.0.0",
     "nuxt": "^3.8.0",
+    "nuxt-icon": "^0.6.0",
+    "nuxt-icons": "^3.2.1",
+    "pug": "^3.0.2",
+    "sass": "^1.66.1",
+    "sass-loader": "^13.3.2",
     "vue": "^3.3.6",
     "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.5.1",
+    "nuxt-swiper": "^1.2.2",
+    "pinia": "^2.1.7"
   }
 }
