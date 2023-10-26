@@ -12,7 +12,6 @@ export default defineNuxtConfig({
 
   modules: ["@pinia/nuxt", 'nuxt-icon'],
 
-
   vite: {
     css: {
       preprocessorOptions: {
