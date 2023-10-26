@@ -11,9 +11,7 @@
 
 ## Структура проекта
 
-### API
-
-API URL: http://devtwit8.ru/api/v1/page?path=<page_path>
+### AP
 
 Примеры запросов:
 - http://devtwit8.ru/api/v1/page/?path=/
