@@ -52,6 +52,7 @@ const { body, meta } = data.value;
 
 const articles = body[0].data.articles;
 
+
 articles?.forEach((article: Article) => {
   console.log(article.title, article.link);
 });
