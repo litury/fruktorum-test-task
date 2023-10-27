@@ -1,23 +1,58 @@
 <template lang="pug">
-div.article-block(v-for="block in homeBody")
-  div.article-block__content
-    div.article-block__content__title
-      h1 {{ block.title }}
+//div.article-block(v-for="block in homeBody")
+        div.article-block__content
+          div.article-block__content__title
+            h1 {{ block.title }}
+
+
 </template>
 
 <script setup lang="ts">
-import { useHomeStore } from '~/store/home'
+interface FetchResponse<T> {
+  data: T;
+  error: any;
+}
 
-const homeStore = useHomeStore()
+interface DataValue {
+  page_type: string;
 
-const homeBody = computed(() => homeStore.home)
+  meta: {
+    title: string;
+    description: string;
+    slug: string;
+  };
 
-onMounted(() => {
-  homeStore.fetchHome()
+  body: {
+    type: string;
+    id: string;
 
-  console.log(homeStore)
-})
+    data: {
+      title?: string;
 
+      articles?: {
+        title: string;
+        link: string;
+        image: string;
+      }[];
+    };
+  }[];
+}
 
+interface Article {
+  title: string;
+  link: string;
+  image: string;
+}
 
+const { data } = await useFetch<FetchResponse<DataValue>>("/api/home", {
+  method: "GET",
+});
+
+const { body, meta } = data.value;
+
+const articles = body[0].data.articles;
+
+articles?.forEach((article: Article) => {
+  console.log(article.title, article.link);
+});
 </script>

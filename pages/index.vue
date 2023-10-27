@@ -1,11 +1,14 @@
 <template>
   <TheHeader/>
-<!--  <ArticleListBlock/>-->
+  <ArticleListBlock/>
   <TheFooter/>
 </template>
 
 
 <script setup lang="ts">
+
+
+
 
 
 </script>
