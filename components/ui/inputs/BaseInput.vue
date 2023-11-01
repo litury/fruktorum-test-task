@@ -36,7 +36,6 @@ const valueData = computed({
   border-bottom: 1px solid var(--color-gray);
   outline: none;
   background-color: inherit;
-  padding: 10px 0;
 
   color: var(--color-white);
   width: 353px;

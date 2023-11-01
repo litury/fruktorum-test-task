@@ -4,6 +4,7 @@ ArticleIntroBlock
 TextBlock
 ImageBlock
 SliderBlock
+CTAFormBlock
 TheFooter
 </template>
 
