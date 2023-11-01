@@ -7,7 +7,7 @@ const email = ref("");
 </script>
 
 <template lang="pug">
-div(:class="[$style['subscribe-block']]")
+div(:class="[$style['subscribe-block'], 'container']")
     h3(:class="[$style['subscribe-block__title']]") Подпишись на рассылку
     span(:class="[$style['subscribe-block__subscribe']]")
       BaseInput(
@@ -29,6 +29,8 @@ div(:class="[$style['subscribe-block']]")
   padding: 30px;
   background-color: var(--color-text);
 
+  margin-bottom: 100px;
+
   &__subscribe {
     display: flex;
     align-items: flex-end;
@@ -43,3 +45,5 @@ div(:class="[$style['subscribe-block']]")
   }
 }
 </style>
+
+

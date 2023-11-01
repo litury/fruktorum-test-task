@@ -7,7 +7,7 @@ div(:class="[$style['intro'], 'container']")
     figure(:class="$style['intro__image-wrapper']")
       img(
         :class="$style['intro__image']"
-        :src="data.image"
+        :src="props.data.image"
       )
 
     // Контейнер для информации
@@ -15,31 +15,30 @@ div(:class="[$style['intro'], 'container']")
 
       // Заголовок статьи
       h1(:class="$style['intro__title']")
-        | {{data.title}}
+        | {{props.data.title}}
 
       // Время чтения статьи
       span(:class="$style['intro__time']")
         nuxt-icon(:class="$style['intro__icon']" name="clock" filled)
-        | {{data.reading_time}} мин время чтения
+        | {{props.data.reading_time}} мин время чтения
 
       // Количество просмотров статьи
       span(:class="$style['intro__views']")
         nuxt-icon(:class="$style['intro__icon']" name="eye" filled)
-        | {{data.views_count}} прочитали статью
+        | {{props.data.views_count}} прочитали статью
 
       // Краткое описание статьи
       p(:class="$style['intro__description']")
-        | {{data.short_description}}
+        | {{props.data.short_description}}
 </template>
 
 <script setup lang="ts">
-import { useArticleStore } from "~/store/articleStore";
-
-// Инициализация хранилища статей
-const articleStore = useArticleStore();
-
-// Получение данных для блока введения статьи
-const { data } = articleStore.getBlockByType("article_intro_block");
+const props = defineProps<{
+  data: {
+    src: string;
+    caption: string;
+  };
+}>();
 </script>
 
 <style module lang="scss">

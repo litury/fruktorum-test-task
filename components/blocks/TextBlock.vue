@@ -1,17 +1,16 @@
 <template lang="pug">
 div(:class="[$style['text-block'], 'container']")
-  div(v-html="data" )
+  div(v-html="props.data" )
 </template>
 
 
 <script setup lang="ts">
-import { useArticleStore } from "~/store/articleStore";
-
-// Инициализация хранилища статей
-const articleStore = useArticleStore();
-
-// Получение данных для блока введения статьи
-const { data } = articleStore.getBlockByType("text_block");
+const props = defineProps<{
+  data: {
+    src: string;
+    caption: string;
+  };
+}>();
 
 </script>
 

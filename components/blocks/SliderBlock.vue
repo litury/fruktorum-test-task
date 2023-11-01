@@ -1,33 +1,30 @@
-<template>
-  <div class="slider-block container">
-    <swiper-container
+<template lang="pug">
+section.slider-block.container
+    swiper-container(
       effect="fade"
       :navigation="navigationConfig"
       :pagination="paginationConfig"
-    >
-      <swiper-slide v-for="slide in data">
-        <img :src="slide" alt="test" />
-      </swiper-slide>
-    </swiper-container>
-
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-  </div>
+    )
+      swiper-slide(v-for="slide in props.data" :key="props.id")
+        img(:src="slide" alt="test")
+    div.swiper-pagination
+    div.swiper-button-next
+    div.swiper-button-prev
 </template>
 
 <script setup lang="ts">
 // import function to register Swiper custom elements
 import { register } from "swiper/element/bundle";
+
 // register Swiper custom elements
 register();
-import { useArticleStore } from "~/store/articleStore";
 
-// Инициализация хранилища статей
-const articleStore = useArticleStore();
+const props = defineProps<{
+  data: { };
+  id: string;
+}>();
 
-// Получение данных для блока введения статьи
-const { data } = articleStore.getBlockByType("slider_block");
+console.log(props.id);
 
 const navigationConfig = {
   nextEl: ".swiper-button-next",
@@ -39,9 +36,12 @@ const paginationConfig = {
   clickable: true,
   type: "fraction",
 };
+
+
+
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .slider-block {
   margin-bottom: 100px;
   position: relative;
@@ -62,7 +62,6 @@ const paginationConfig = {
 .swiper-button-next {
   background: none;
   right: 50px;
-
 }
 
 .swiper-button-prev {

@@ -2,18 +2,19 @@
 figure(:class="[$style['image-block'], 'container']")
   img(
     :class="$style['image-block__image']"
-    :src="data.src",
-    :alt="data.caption"
+    :src="props.data.src",
+    :alt="props.data.caption"
   )
 </template>
 
 <script setup lang="ts">
-import { useArticleStore } from "~/store/articleStore";
 
-// Инициализация хранилища статей
-const articleStore = useArticleStore();
-
-const { data } = articleStore.getBlockByType("image_block");
+const props = defineProps<{
+  data: {
+    src: string;
+    caption: string;
+  };
+}>();
 
 </script>
 

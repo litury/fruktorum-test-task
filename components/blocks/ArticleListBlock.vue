@@ -1,7 +1,8 @@
 <template lang="pug">
+h2(:class="[$style['articles__title'], 'container']" v-if="title" ) {{title}}
 div(:class="[$style['articles'], 'container']")
     ArticleBlock(
-      v-for="article in props.data.slice(0, 3)"
+      v-for="article in articlesData"
       :key="article.title"
       :image="article.image"
       :title="article.title"
@@ -10,12 +11,31 @@ div(:class="[$style['articles'], 'container']")
 </template>
 
 <script setup lang="ts">
+import { useArticleStore } from "~/store/articleStore";
+
+// Инициализация хранилища статей
+const articleStore = useArticleStore();
 
 interface IProps {
   data: [];
+  title: string;
 }
 
+
 const props = defineProps<IProps>();
+
+const articlesData = computed(() => {
+  return props.data ? props.data : articleStore.getBlockByType("article_list_block").data.articles;
+});
+
+const blockData = computed(() => {
+  return props.data ? props.data : articleStore.getBlockByType("article_list_block").data;
+});
+
+const title = computed(() => {
+  return blockData.value.title;
+});
+
 </script>
 
 <style lang="scss" module>
@@ -27,5 +47,9 @@ const props = defineProps<IProps>();
   column-gap: 30px;
   margin-bottom: 200px;
   padding-top: 15px;
+
+  &__title {
+    margin-bottom: 50px;
+  }
 }
 </style>
