@@ -1,59 +1,31 @@
 <template lang="pug">
-//div.article-block(v-for="block in homeBody")
-        div.article-block__content
-          div.article-block__content__title
-            h1 {{ block.title }}
-
-
+div(:class="[$style['articles'], 'container']")
+    ArticleBlock(
+      v-for="article in props.data.slice(0, 3)"
+      :key="article.title"
+      :image="article.image"
+      :title="article.title"
+      :link="article.link"
+    )
 </template>
 
 <script setup lang="ts">
-interface FetchResponse<T> {
-  data: T;
-  error: any;
+
+interface IProps {
+  data: [];
 }
 
-interface DataValue {
-  page_type: string;
-
-  meta: {
-    title: string;
-    description: string;
-    slug: string;
-  };
-
-  body: {
-    type: string;
-    id: string;
-
-    data: {
-      title?: string;
-
-      articles?: {
-        title: string;
-        link: string;
-        image: string;
-      }[];
-    };
-  }[];
-}
-
-interface Article {
-  title: string;
-  link: string;
-  image: string;
-}
-
-const { data } = await useFetch<FetchResponse<DataValue>>("/api/home", {
-  method: "GET",
-});
-
-const { body, meta } = data.value;
-
-const articles = body[0].data.articles;
-
-
-articles?.forEach((article: Article) => {
-  console.log(article.title, article.link);
-});
+const props = defineProps<IProps>();
 </script>
+
+<style lang="scss" module>
+.articles {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  grid-row-gap: 50px;
+  column-gap: 30px;
+  margin-bottom: 200px;
+  padding-top: 15px;
+}
+</style>
