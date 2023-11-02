@@ -2,11 +2,11 @@
 TheHeader
 div
   div(
-      v-for="block in body"
-      :key="block.id")
+    v-for="(block, index) in body"
+    :key="ids[index]")
     component(
       v-bind:is="components[block.type]"
-      :id="block.id"
+      :newId="ids[index]"
       v-bind="block")
 TheFooter
 </template>
@@ -42,6 +42,9 @@ const components = {
   article_list_block: ArticleListBlock,
   cta_form_block: CtaFormBlock,
 }
+
+const ids = body.map(block => uuidv4())
+console.log(ids)
 
 
 console.log(body)

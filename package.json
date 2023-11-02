@@ -19,6 +19,7 @@
     "pug": "^3.0.2",
     "sass": "^1.66.1",
     "sass-loader": "^13.3.2",
+    "vite-plugin-vue-setup-inherit-attrs": "^1.0.8",
     "vue": "^3.3.6",
     "vue-router": "^4.2.5"
   },
