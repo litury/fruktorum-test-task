@@ -7,5 +7,5 @@
 </template>
 
 <style lang="scss">
-@use '~/assets/scss/base.scss';
+@use "~/assets/scss/base.scss";
 </style>

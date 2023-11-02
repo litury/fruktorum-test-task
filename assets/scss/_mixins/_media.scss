@@ -6,28 +6,8 @@ $xl-1200: 1200px; // Ноутбуки с большим разрешением
 $xxl-1400: 1400px; // Большие мониторы
 
 @mixin media($media) {
-  @if $media == $xs-320 {
-    @media (max-width: $xs-320 - 1) {
-      @content;
-    }
-  } @else if $media == $sm-480 {
-    @media (min-width: $xs-320) and (max-width: $sm-480 - 1) {
-      @content;
-    }
-  } @else if $media == $md-768 {
-    @media (min-width: $sm-480) and (max-width: $md-768 - 1) {
-      @content;
-    }
-  } @else if $media == $lg-992 {
-    @media (min-width: $md-768) and (max-width: $lg-992 - 1) {
-      @content;
-    }
-  } @else if $media == $xl-1200 {
-    @media (min-width: $lg-992) and (max-width: $xl-1200 - 1) {
-      @content;
-    }
-  } @else if $media == $xxl-1400 {
-    @media (min-width: $xl-1200) and (max-width: $xxl-1400 - 1) {
+  @if $media == $xl-1200 {
+    @media (max-width: $xl-1200 - 1) {
       @content;
     }
   }

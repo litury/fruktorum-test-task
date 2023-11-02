@@ -1,7 +1,7 @@
 <template lang="pug">
 
 // Корневой контейнер компонента
-div(:class="[$style['intro'], 'container']")
+section(:class="[$style['intro'], 'container']")
 
     // Контейнер для изображения
     figure(:class="$style['intro__image-wrapper']")
@@ -33,6 +33,7 @@ div(:class="[$style['intro'], 'container']")
 </template>
 
 <script setup lang="ts">
+
 const props = defineProps<{
   data: {
     src: string;
@@ -42,10 +43,11 @@ const props = defineProps<{
 </script>
 
 <style module lang="scss">
+@import '../../assets/scss/_mixins/media.scss';
+
 .intro {
   display: flex;
   gap: 30px;
-  margin-bottom: 100px;
 
   // Стили для контейнера изображения
   &__image-wrapper {
@@ -94,6 +96,22 @@ const props = defineProps<{
   &__views {
     color: var(--color-gray);
     margin-bottom: 50px;
+  }
+}
+
+@include media($xl-1200) {
+  .intro {
+    flex-direction: column;
+
+  }
+
+  .intro__image-wrapper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .intro__info {
+
   }
 }
 </style>

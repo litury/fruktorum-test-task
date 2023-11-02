@@ -6,7 +6,8 @@ footer(:class="[$style['footer'], 'container']")
 
       // - Инфо
       div(:class="$style['footer__content']")
-        AppLogo(:class="$style['footer__logo']")
+        NuxtLink(:class="$style['header__link']" :to="'/'")
+          AppLogo
         p(:class="$style['footer__description']")
           | Cтатьи о дизайне и искусстве, которые исследуют творческие вдохновения и актуальные тенденции, раскрывая мир эстетики и креативности
 
@@ -35,6 +36,8 @@ let email = ref("");
 </script>
 
 <style module lang="scss">
+@import '../assets/scss/_mixins/media.scss';
+
 .footer {
   &__wrapper {
     display: flex;
@@ -74,6 +77,55 @@ let email = ref("");
   &__social-icon svg {
     width: 30px;
     height: 30px;
+  }
+}
+
+@include media($xl-1200) {
+  .footer {
+    &__wrapper {
+     flex-direction: column;
+      gap: 20px;
+      margin-bottom: 70px;
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 426px;
+    }
+
+    &__description {
+      color: var(--color-gray);
+    }
+
+    &__subscribe {
+      display: flex;
+     flex-direction: column;
+      text-align: left;
+      width: 100%;
+    }
+
+    &__subscribe-title {
+      font-size: var(--font-size-body-2);
+      line-height: var(--line-height-body-2);
+      color: var(--color-gray);
+    }
+
+    &__subscribe-text {
+      font-family: Ubuntu-Regular, sans-serif;
+      margin-bottom: 24px;
+    }
+
+    &__social {
+      display: flex;
+      gap: 20px;
+    }
+
+    &__social-icon svg {
+      width: 30px;
+      height: 30px;
+    }
   }
 }
 </style>

@@ -1,8 +1,9 @@
 <template lang="pug">
-h2(:class="[$style['articles__title'], 'container']" v-if="title" ) {{title}}
-div(:class="[$style['articles'], 'container']")
+section(:class="[$style['articles'], 'container']")
+  h2(:class="[$style['articles__title'], 'container']" v-if="slug" ) {{props.data.title}}
+  div(:class="[$style['articles__block-wrapper']]")
     ArticleBlock(
-      v-for="article in articlesData"
+      v-for="article in props.data.articles.slice(0, 3)"
       :key="article.title"
       :image="article.image"
       :title="article.title"
@@ -17,39 +18,31 @@ import { useArticleStore } from "~/store/articleStore";
 const articleStore = useArticleStore();
 
 interface IProps {
-  data: [];
-  title: string;
+  data: Object;
 }
-
 
 const props = defineProps<IProps>();
 
-const articlesData = computed(() => {
-  return props.data ? props.data : articleStore.getBlockByType("article_list_block").data.articles;
-});
+const route = useRoute();
+const slug = route.params.slug;
 
-const blockData = computed(() => {
-  return props.data ? props.data : articleStore.getBlockByType("article_list_block").data;
-});
-
-const title = computed(() => {
-  return blockData.value.title;
-});
 
 </script>
 
 <style lang="scss" module>
 .articles {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(300px, 1fr));
-  grid-row-gap: 50px;
-  column-gap: 30px;
-  margin-bottom: 200px;
-  padding-top: 15px;
 
   &__title {
     margin-bottom: 50px;
+  }
+
+  &__block-wrapper {
+    width: 100%;
+    display: flex;
+    gap: 50px;
+    padding-top: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 </style>

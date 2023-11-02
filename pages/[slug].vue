@@ -1,14 +1,11 @@
 <template lang="pug">
-TheHeader
-div
-  div(
+template(
     v-for="(block, index) in body"
     :key="ids[index]")
     component(
       v-bind:is="components[block.type]"
       :newId="ids[index]"
       v-bind="block")
-TheFooter
 </template>
 
 <script setup lang="ts">
@@ -44,11 +41,6 @@ const components = {
 }
 
 const ids = body.map(block => uuidv4())
-console.log(ids)
-
-
-console.log(body)
-
 </script>
 
 <style module lang="scss"></style>

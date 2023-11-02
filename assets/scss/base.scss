@@ -38,18 +38,10 @@ h3 {
 
 
 
-@include media($sm-480) {
+@include media($xl-1200) {
   // Стили для экранов с шириной до 319px
   h1 {
-    font-size: 8px;
-    line-height: 8px;
-  }
-  h2 {
-    font-size: 8px;
-    line-height: 8px;
-  }
-  h3 {
-    font-size: 8px;
-    line-height: 8px;
+    font-size: 28px;
+    line-height: 33px;
   }
 }

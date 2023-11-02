@@ -32,6 +32,8 @@ const valueData = computed({
 </script>
 
 <style lang="scss" module>
+@import '../../../assets/scss/_mixins/media.scss';
+
 .input {
   border-bottom: 1px solid var(--color-gray);
   outline: none;
@@ -46,6 +48,12 @@ const valueData = computed({
 
   &:focus {
     border-bottom-color: var(--color-blue);
+  }
+}
+
+@include media($xl-1200) {
+  .input {
+    width: 100%;
   }
 }
 </style>

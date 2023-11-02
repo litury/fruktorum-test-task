@@ -4,8 +4,6 @@ section.slider-block.container
       effect="fade"
       :navigation="navigationConfig"
       :pagination="paginationConfig"
-      :data-pagination="props.newId"
-      :id="props.newId"
     )
       swiper-slide(v-for="slide in props.data" :key="props.newId")
         img(:src="slide" alt="test")
@@ -27,11 +25,7 @@ section.slider-block.container
 </template>
 
 <script setup lang="ts">
-// import function to register Swiper custom elements
 import { register } from "swiper/element/bundle";
-import Swiper from "swiper";
-
-import { defineComponent } from "vue";
 
 defineOptions({
   inheritAttrs: false,
@@ -44,8 +38,6 @@ const props = defineProps<{
   data: {};
   newId: string;
 }>();
-
-console.log(props.data);
 
 
 const navigationConfig = {
@@ -62,7 +54,6 @@ const paginationConfig = {
 
 <style lang="scss" scoped>
 .slider-block {
-  margin-bottom: 100px;
   position: relative;
 }
 

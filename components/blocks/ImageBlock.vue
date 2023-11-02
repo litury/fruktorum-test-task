@@ -19,14 +19,27 @@ const props = defineProps<{
 </script>
 
 <style module lang="scss">
+@import '../../assets/scss/_mixins/media.scss';
+
 .image-block {
   height: 550px;
-  margin-bottom: 155px;
 
   &__image {
     width: 100%;
     height: 100%;
     border-top-right-radius: 200px;
+  }
+}
+
+@include media($xl-1200) {
+  .image-block {
+    height: 100%;
+
+    &__image {
+      width: 100%;
+      height: 100%;
+      border-top-right-radius: 200px;
+    }
   }
 }
 </style>

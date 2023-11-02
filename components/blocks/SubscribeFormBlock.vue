@@ -7,9 +7,9 @@ const email = ref("");
 </script>
 
 <template lang="pug">
-div(:class="[$style['subscribe-block'], 'container']")
+section(:class="[$style['subscribe-block'], 'container']")
     h3(:class="[$style['subscribe-block__title']]") Подпишись на рассылку
-    span(:class="[$style['subscribe-block__subscribe']]")
+    div(:class="[$style['subscribe-block__subscribe']]")
       BaseInput(
         v-model:value="email",
         placeholder="Email")
@@ -21,6 +21,8 @@ div(:class="[$style['subscribe-block'], 'container']")
 </template>
 
 <style module lang="scss">
+@import '../../assets/scss/_mixins/media.scss';
+
 .subscribe-block {
   display: flex;
   justify-content: space-between;
@@ -28,8 +30,6 @@ div(:class="[$style['subscribe-block'], 'container']")
 
   padding: 30px;
   background-color: var(--color-text);
-
-  margin-bottom: 100px;
 
   &__subscribe {
     display: flex;
@@ -42,6 +42,30 @@ div(:class="[$style['subscribe-block'], 'container']")
 
   &__subscribe-button {
     margin-left: 37px;
+  }
+}
+
+@include media($xl-1200) {
+  .subscribe-block {
+    flex-direction: column;
+gap: 20px;
+    padding: 30px;
+    background-color: var(--color-text);
+
+    &__subscribe {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+
+    &__title {
+      color: var(--color-white);
+    }
+
+    &__subscribe-button {
+      margin-left: 5px;
+    }
   }
 }
 </style>

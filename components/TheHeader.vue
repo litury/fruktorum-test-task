@@ -5,7 +5,8 @@
 
 <template lang="pug">
 header(:class="$style.header")
-  AppLogo
+  NuxtLink(:class="$style['header__link']" :to="'/'")
+    AppLogo
 </template>
 
 <style lang="scss" module>
