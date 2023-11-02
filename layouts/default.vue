@@ -22,6 +22,7 @@ div
   margin-bottom: 200px;
 }
 
+
 @include media($xl-1200) {
   // Стили для экранов с шириной до 319px
   .main {

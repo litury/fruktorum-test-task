@@ -13,7 +13,7 @@ export const useArticleStore = defineStore("article", {
 
   getters: {
     getBlockByType: (state) => (type: string) => {
-      return state.articles.find((block) => block.type === type);
+      return state.articles.find((block)  => block.type === type);
     },
   },
 
