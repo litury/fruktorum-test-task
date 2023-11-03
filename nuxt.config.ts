@@ -12,7 +12,7 @@ export default defineNuxtConfig({
     },
   ],
 
-  modules: ["@pinia/nuxt", 'nuxt-icons', 'nuxt-swiper'],
+  modules: ["@pinia/nuxt", 'nuxt-icons'],
 
   vite: {
     css: {
