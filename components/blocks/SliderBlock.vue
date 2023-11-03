@@ -63,7 +63,6 @@ const paginationConfig = {
 
 <style lang="scss" scoped>
 .slider-block {
-  margin-bottom: 100px;
   position: relative;
 }
 
